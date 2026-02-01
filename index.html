@@ -54,18 +54,21 @@ body{
 .wrap{
   max-width:var(--max);
   margin:auto;
-  padding:20px 14px 80px;
+
+  /* Make the long image act like ONE continuous invitation */
+  background:
+    url("hana.jpg") center top / 100% auto no-repeat;
+
+  /* add space so content doesn’t touch edges */
+  padding:40px 14px 80px;
 }
 
 .panel{
   margin-top:0;
   padding:80px 24px;
 
-  background:
-    linear-gradient(rgba(255,255,255,.50), rgba(255,255,255,.50)),
-    url("hana.jpg") center top / 100% auto no-repeat;
-
-  min-height: 900px;
+  /* panels should NOT have their own background */
+  background: transparent;
 
   border:none;
   box-shadow:none;
