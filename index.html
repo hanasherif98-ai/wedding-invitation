@@ -11,11 +11,15 @@
 
 <style>
 :root{
+  --hana1:#edf5f0;
+  --hana2:#e6f0fb;
   --ink:#10212a;
   --muted:#4d6875;
   --accent:#2a6f74;
   --accent2:#2f5f9a;
   --line:#b8d3dc;
+  --shadow:0 18px 50px rgba(0,0,0,.10);
+  --radius:22px;
   --max:760px;
 }
 
@@ -25,26 +29,31 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   color:var(--ink);
+  background:
+    radial-gradient(900px 520px at 15% 0%, rgba(42,111,116,.18), transparent 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(47,95,154,.14), transparent 60%),
+    linear-gradient(180deg,var(--hana1),var(--hana2));
   font-family:"Playfair Display", serif;
 }
 
-/* FULL WIDTH BACKGROUND */
+/* Wrap holds ONE continuous background image */
 .wrap{
-  width:100%;
-  margin:0;
+  max-width:var(--max);
+  margin:0 auto;
 
   background: url("hana.jpg") center top no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
 
   padding:40px 14px 80px;
 }
 
-/* Center content nicely */
+/* Sections are transparent so background doesn’t restart */
 .panel{
-  max-width:var(--max);
-  margin:0 auto;
+  margin-top:0;
   padding:80px 24px;
-  background:transparent;
+  background: transparent;
+  border:none;
+  box-shadow:none;
   text-align:center;
 }
 
@@ -59,11 +68,12 @@ body{
 }
 .logo span{
   font-size:36px;
+  vertical-align:middle;
   margin:0 8px;
   color:var(--accent);
 }
 
-/* Titles */
+/* TITLES */
 h1{
   font-family:"Great Vibes", cursive;
   font-size:64px;
@@ -92,7 +102,7 @@ h1{
   margin-top:8px;
 }
 
-/* Parents */
+/* Parents block */
 .parents{
   display:flex;
   justify-content:center;
@@ -112,6 +122,7 @@ h1{
   font-size:32px;
   font-weight:800;
   color:var(--accent2);
+  font-family:"Playfair Display", serif;
 }
 .and{
   font-size:30px;
@@ -178,49 +189,65 @@ textarea{min-height:40px}
   font-size:14px;
 }
 
-/* MOBILE FIXES */
-@media (max-width:600px){
+/* ===== Mobile fixes ===== */
+@media (max-width: 600px){
 
-  .panel{
-    padding:52px 14px;
+  /* Full-width on mobile so background fills screen */
+  .wrap{
+    max-width:100%;
+    width:100%;
+    margin:0;
+
+    background-position:center top;
+    background-size:100% auto;
+
+    padding:24px 12px 60px;
   }
+
+  .panel{ padding:52px 14px; }
 
   .logo{
     font-size:52px;
     letter-spacing:.10em;
+    margin-bottom:12px;
   }
-  .logo span{font-size:26px;}
+  .logo span{
+    font-size:26px;
+    margin:0 6px;
+  }
 
   h1{
     font-size:52px;
     line-height:1.05;
+    margin:10px 0;
   }
 
-  .text{font-size:15px;}
-  .date{font-size:18px;}
-  .sectionTitle{font-size:15px;}
+  .text{ font-size:15px; }
+  .date{ font-size:18px; }
+  .sectionTitle{ font-size:15px; letter-spacing:.18em; }
 
+  /* Parents stack cleanly */
   .parents{
     flex-direction:column;
     gap:18px;
+    margin:18px 0 22px;
   }
-  .parents strong{font-size:26px;}
-  .parents .lbl{font-size:14px;}
-  .and{font-size:18px;}
+  .parents .lbl{ font-size:14px; letter-spacing:.10em; }
+  .parents strong{ font-size:26px; line-height:1.15; }
+  .and{ font-size:18px; margin:-6px 0; }
 
-  .btn{
-    width:100%;
-    text-align:center;
-  }
+  /* Buttons full width */
+  .btn{ width:100%; text-align:center; padding:12px 14px; }
+  .btns{ gap:10px; }
 
-  input,select,textarea{font-size:16px;}
-  textarea{min-height:50px;}
+  /* Prevent iPhone zoom */
+  input,select,textarea{ font-size:16px; }
+  textarea{ min-height:50px; }
 }
 </style>
 </head>
 
 <body>
-
 <div class="wrap">
 
 <!-- COVER -->
@@ -273,7 +300,7 @@ textarea{min-height:40px}
   <div class="text">at 1:30 PM</div>
 
   <div class="btns">
-    <a class="btn primary" target="_blank"
+    <a class="btn primary" target="_blank" rel="noreferrer"
        href="https://www.google.com/maps/search/?api=1&query=Saint%20Mary%20Church%20Maraashly%20Street%20Zamalek">
       LOCATION
     </a>
@@ -293,7 +320,7 @@ textarea{min-height:40px}
   <div class="text">Cocktail &amp; Reception at 4:00 PM</div>
 
   <div class="btns">
-    <a class="btn primary" target="_blank"
+    <a class="btn primary" target="_blank" rel="noreferrer"
        href="https://www.google.com/maps/search/?api=1&query=Nile%20Ritz-Carlton%20Cairo">
       LOCATION
     </a>
@@ -315,7 +342,6 @@ textarea{min-height:40px}
   </div>
 
   <form id="rsvpForm">
-
     <label>Full name</label>
     <input required>
 
@@ -337,7 +363,6 @@ textarea{min-height:40px}
     </div>
 
     <div class="toast" id="toast">RSVP saved. Thank you!</div>
-
   </form>
 
 </div>
@@ -355,6 +380,5 @@ form.addEventListener("submit",e=>{
   form.reset();
 });
 </script>
-
 </body>
 </html>
