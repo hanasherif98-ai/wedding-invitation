@@ -55,11 +55,13 @@ body{
   max-width:var(--max);
   margin:auto;
 
-  /* Make the long image act like ONE continuous invitation */
   background:
-    url("hana.jpg") center top / 100% auto no-repeat;
+    url("hana.jpg") center top no-repeat;
 
-  /* add space so content doesn’t touch edges */
+  background-size: cover;
+
+  min-height: 100vh;
+
   padding:40px 14px 80px;
 }
 
