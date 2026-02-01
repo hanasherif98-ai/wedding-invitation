@@ -190,21 +190,25 @@ textarea{min-height:40px}
 }
 
 /* ===== Mobile fixes ===== */
-@media (max-width: 600px){
+@media (max-width:600px){
 
-  /* Full-width on mobile so background fills screen */
+  /* show the FULL image width on phones (no crop) */
   .wrap{
-    max-width:100%;
-    width:100%;
-    margin:0;
-
-    background-position:center top;
-    background-size:100% auto;
-
-    padding:24px 12px 60px;
+    padding:24px 0 60px;                 /* remove side padding so it reaches edges */
+    background: url("hana.jpg") center top no-repeat;
+    background-size: 100% auto;          /* key line: full width visible */
+    background-color: #edf5f0;           /* fallback */
   }
 
-  .panel{ padding:52px 14px; }
+  /* also remove max-width feeling on mobile content */
+  .panel{
+    max-width: 100%;
+    padding:52px 14px;
+  }
+
+  /* keep buttons full width */
+  .btn{ width:100%; }
+}
 
   .logo{
     font-size:52px;
