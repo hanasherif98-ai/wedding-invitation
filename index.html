@@ -11,8 +11,8 @@
 
 <style>
 :root{
-  --hana1:#edf5f0;
-  --hana2:#e6f0fb;
+  --background1:#edf5f0;
+  --background2:#e6f0fb;
   --ink:#10212a;
   --muted:#4d6875;
   --accent:#2a6f74;
@@ -32,7 +32,7 @@ body{
   background:
     radial-gradient(900px 520px at 15% 0%, rgba(42,111,116,.18), transparent 60%),
     radial-gradient(900px 520px at 85% 10%, rgba(47,95,154,.14), transparent 60%),
-    linear-gradient(180deg,var(--hana1),var(--hana2));
+    linear-gradient(180deg,var(--background1),var(--background2));
   font-family:"Playfair Display", serif;
 }
 
@@ -41,7 +41,7 @@ body{
   max-width:var(--max);
   margin:0 auto;
 
-  background: url("hana.jpg") center top no-repeat;
+  background: url("background.jpg") center top no-repeat;
   background-size: 100% auto;
 
   padding:40px 14px 80px;
@@ -195,7 +195,7 @@ textarea{min-height:40px}
   /* show the FULL image width on phones (no crop) */
   .wrap{
     padding:24px 0 60px;                 /* remove side padding so it reaches edges */
-    background: url("hana.jpg") center top no-repeat;
+    background: url("background.jpg") center top no-repeat;
     background-size: 100% auto;          /* key line: full width visible */
     background-color: #edf5f0;           /* fallback */
   }
