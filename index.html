@@ -18,7 +18,6 @@
   --accent:#2a6f74;
   --accent2:#2f5f9a;
   --line:#b8d3dc;
-  --shadow:0 18px 50px rgba(0,0,0,.10);
   --radius:22px;
   --max:760px;
 }
@@ -36,28 +35,22 @@ body{
   font-family:"Playfair Display", serif;
 }
 
-/* Wrap holds ONE continuous background image */
+/* ONE continuous background image */
 .wrap{
   max-width:var(--max);
   margin:0 auto;
-
-  background: url("hana.jpg") center top no-repeat;
-  background-size: 100% auto;
-
+  background: url("background.jpg") center top no-repeat;
+  background-size:100% auto;
   padding:40px 14px 80px;
 }
 
-/* Sections are transparent so background doesn’t restart */
+/* Transparent panels */
 .panel{
-  margin-top:0;
   padding:80px 24px;
-  background: transparent;
-  border:none;
-  box-shadow:none;
   text-align:center;
 }
 
-/* TITLES */
+/* Titles */
 h1{
   font-family:"Great Vibes", cursive;
   font-size:64px;
@@ -86,7 +79,7 @@ h1{
   margin-top:8px;
 }
 
-/* Parents block */
+/* Parents */
 .parents{
   display:flex;
   justify-content:center;
@@ -106,7 +99,6 @@ h1{
   font-size:32px;
   font-weight:800;
   color:var(--accent2);
-  font-family:"Playfair Display", serif;
 }
 .and{
   font-size:30px;
@@ -161,7 +153,7 @@ input,select,textarea{
   margin-top:6px;
   font-size:15px;
 }
-textarea{min-height:40px}
+textarea{min-height:50px}
 
 .toast{
   display:none;
@@ -173,54 +165,33 @@ textarea{min-height:40px}
   font-size:14px;
 }
 
-/* ===== Mobile fixes ===== */
+/* ===== Mobile ===== */
 @media (max-width:600px){
-
-  /* show the FULL image width on phones (no crop) */
   .wrap{
-    padding:24px 0 60px;                 /* remove side padding so it reaches edges */
-    background: url("hana.jpg") center top no-repeat;
-    background-size: 100% auto;          /* key line: full width visible */
-    background-color: #edf5f0;           /* fallback */
+    padding:24px 0 60px;
+    background: url("background.jpg") center top no-repeat;
+    background-size:100% auto;
+    background-color:#edf5f0;
   }
 
-  /* also remove max-width feeling on mobile content */
   .panel{
-    max-width: 100%;
     padding:52px 14px;
   }
 
-  /* keep buttons full width */
-  .btn{ width:100%; }
-}
+  h1{font-size:52px}
+  .text{font-size:15px}
+  .date{font-size:18px}
+  .sectionTitle{font-size:15px}
 
-h1{
-  font-size:52px;
-  line-height:1.05;
-  margin:10px 0;
-}
+  .parents{
+    flex-direction:column;
+    gap:18px;
+  }
+  .parents strong{font-size:26px}
+  .and{font-size:18px}
 
-.text{ font-size:15px; }
-.date{ font-size:18px; }
-.sectionTitle{ font-size:15px; letter-spacing:.18em; }
-
-/* Parents stack cleanly */
-.parents{
-  flex-direction:column;
-  gap:18px;
-  margin:18px 0 22px;
-}
-.parents .lbl{ font-size:14px; letter-spacing:.10em; }
-.parents strong{ font-size:26px; line-height:1.15; }
-.and{ font-size:18px; margin:-6px 0; }
-
-/* Buttons full width */
-.btn{ width:100%; text-align:center; padding:12px 14px; }
-.btns{ gap:10px; }
-
-/* Prevent iPhone zoom */
-input,select,textarea{ font-size:16px; }
-textarea{ min-height:50px; }
+  .btn{width:100%}
+  input,select,textarea{font-size:16px}
 }
 </style>
 </head>
@@ -230,7 +201,6 @@ textarea{ min-height:50px; }
 
 <!-- COVER -->
 <div class="panel">
-
   <div class="text">Together with love</div>
 
   <div class="parents">
@@ -248,7 +218,6 @@ textarea{ min-height:50px; }
   </div>
 
   <div class="text">Warmly invite you to the wedding of</div>
-
   <h1>Hana &amp; Ramy</h1>
 
   <div class="date">Saturday, 2 May 2026</div>
@@ -259,43 +228,36 @@ textarea{ min-height:50px; }
     <a class="btn" href="#venue">VENUE</a>
     <a class="btn primary" href="#rsvp">RSVP</a>
   </div>
-
 </div>
 
 <!-- CEREMONY -->
 <div class="panel" id="ceremony">
-
   <div class="sectionTitle">Church Ceremony</div>
-
   <div class="text" style="margin-top:14px;">
     Saint Mary Church, Maraashly Street – Zamalek
   </div>
-
   <div class="text">at 1:30 PM</div>
 
   <div class="btns">
-    <a class="btn primary" target="_blank" rel="noreferrer"
-       href="https://www.google.com/maps/search/?api=1&amp;query=Saint%20Mary%20Church%20Maraashly%20Street%20Zamalek">
+    <a class="btn primary" target="_blank"
+       href="https://www.google.com/maps/search/?api=1&query=Saint%20Mary%20Church%20Maraashly%20Street%20Zamalek">
       LOCATION
     </a>
   </div>
-
 </div>
 
 <!-- VENUE -->
 <div class="panel" id="venue">
-
   <div class="sectionTitle">Wedding Venue</div>
 
   <div class="text" style="font-size:19px;margin-top:14px;">
     Nile Ritz-Carlton, Cairo
   </div>
-
   <div class="text">Cocktail &amp; Reception at 4:00 PM</div>
 
   <div class="btns">
-    <a class="btn primary" target="_blank" rel="noreferrer"
-       href="https://www.google.com/maps/search/?api=1&amp;query=Nile%20Ritz-Carlton%20Cairo">
+    <a class="btn primary" target="_blank"
+       href="https://www.google.com/maps/search/?api=1&query=Nile%20Ritz-Carlton%20Cairo">
       LOCATION
     </a>
   </div>
@@ -303,42 +265,36 @@ textarea{ min-height:50px; }
   <div class="text" style="margin-top:20px;letter-spacing:.12em;text-transform:uppercase;">
     Black Tie
   </div>
-
 </div>
 
 <!-- RSVP -->
 <div class="panel" id="rsvp">
-
   <div class="sectionTitle">RSVP</div>
-
-  <div class="text">
-    Please let us know if you’ll be joining the celebration
-  </div>
+  <div class="text">Please let us know if you’ll be joining the celebration</div>
 
   <form id="rsvpForm">
-    <label for="fullName">Full name</label>
-    <input id="fullName" name="fullName" required autocomplete="name">
+    <label>Full name</label>
+    <input required>
 
-    <label for="attendance">Attendance</label>
-    <select id="attendance" name="attendance" required>
-      <option value="">Select...</option>
-      <option value="accepts">Accepts with pleasure</option>
-      <option value="declines">Regretfully declines</option>
+    <label>Attendance</label>
+    <select required>
+      <option value="">Select…</option>
+      <option>Accepts with pleasure</option>
+      <option>Regretfully declines</option>
     </select>
 
-    <label for="guests">Number of guests</label>
-    <input id="guests" name="guests" type="number" min="1" value="1" inputmode="numeric">
+    <label>Number of guests</label>
+    <input type="number" min="1" value="1">
 
-    <label for="notes">Notes</label>
-    <textarea id="notes" name="notes"></textarea>
+    <label>Notes</label>
+    <textarea></textarea>
 
     <div class="btns" style="justify-content:flex-start;margin-top:18px;">
       <button class="btn primary" type="submit">SUBMIT RSVP</button>
     </div>
 
-    <div class="toast" id="toast" role="status" aria-live="polite">RSVP saved. Thank you!</div>
+    <div class="toast" id="toast">RSVP saved. Thank you!</div>
   </form>
-
 </div>
 
 </div>
@@ -347,10 +303,10 @@ textarea{ min-height:50px; }
 const form = document.getElementById("rsvpForm");
 const toast = document.getElementById("toast");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", e => {
   e.preventDefault();
   toast.style.display = "block";
-  setTimeout(() => (toast.style.display = "none"), 4000);
+  setTimeout(() => toast.style.display = "none", 4000);
   form.reset();
 });
 </script>
